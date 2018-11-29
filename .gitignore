@@ -1,0 +1,6 @@
+# Application binaries
+Benchmark
+
+# Generated protos
+*.pb.cc
+*.pb.h
