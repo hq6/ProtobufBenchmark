@@ -1,5 +1,9 @@
-#include "TestObj.pb.h"
 #include <string>
+
+#include "PerfUtils/TimeTrace.h"
+#include "PerfUtils/Cycles.h"
+
+#include "TestObj.pb.h"
 
 int main(){
     TestMessage msg;
