@@ -9,6 +9,7 @@
 #include "TestObj.pb.h"
 
 #define NUM_TRIALS 1000000
+#define UNMARSHAL 1
 
 using PerfUtils::Cycles;
 
@@ -38,6 +39,12 @@ int main(int argc, char** argv){
         if (!success) {
             fprintf(stderr, "Serialization failed\n");
         }
+        #if UNMARSHAL
+        success = msg.ParseFromString(output);
+        if (!success) {
+            fprintf(stderr, "Deserialization failed\n");
+        }
+        #endif
     }
     uint64_t endTime = Cycles::rdtsc();
     printf("%lu ns\n", Cycles::toNanoseconds(endTime - startTime) / NUM_TRIALS);
